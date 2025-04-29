@@ -6,9 +6,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("hello"),
-      ),
+      body: Row(
+        children: [
+          //side NavBar
+          Column(
+            children: [
+              //search section
+              //footer
+            ],
+          )
+        ],
+      )
     );
   }
 }
