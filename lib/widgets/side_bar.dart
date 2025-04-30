@@ -1,13 +1,21 @@
 import 'package:atheriq/theme/colors.dart';
 import 'package:flutter/material.dart';
 
-class SideBar extends StatelessWidget {
+class SideBar extends StatefulWidget {
   const SideBar({super.key});
 
   @override
+  State<SideBar> createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar> {
+  bool isCollapsed = true; //normally the sidebar is collapsed
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 64,
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      width: isCollapsed ? 64 : 128,
       color: AppColors.sideNav,
       child: Column(
         children: [
@@ -59,12 +67,20 @@ class SideBar extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 14),
-            child: Icon(
-              Icons.keyboard_arrow_right,
-              color: AppColors.iconGrey,
-              size: 32,
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                isCollapsed =
+                    !isCollapsed; //it set the state of the sidebar to (collapsed if expanded or expanded when colasped) when on tap
+              });
+            },
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 14),
+              child: Icon(
+                Icons.keyboard_arrow_right,
+                color: AppColors.iconGrey,
+                size: 32,
+              ),
             ),
           ),
           const SizedBox(height: 16),
