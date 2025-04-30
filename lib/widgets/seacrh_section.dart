@@ -12,7 +12,7 @@ class SeacrhSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Where knowledge meets creativity',
+          '{Where knowledge meets creativity}',
           style: GoogleFonts.ibmPlexMono(
             fontSize: 40,
             fontWeight: FontWeight.w400,
@@ -25,44 +25,57 @@ class SeacrhSection extends StatelessWidget {
           width: 700,
           decoration: BoxDecoration(
             color: AppColors.searchBar,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: AppColors.searchBarBorder,
+              width: 2,
+            ),
           ),
           child: Column(
             children: [
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Seach for anything...',
-                  hintStyle: TextStyle(
-                    color: AppColors.textGrey,
-                    fontSize: 16,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Seach for anything...',
+                    hintStyle: TextStyle(
+                      color: AppColors.textGrey,
+                      fontSize: 16,
+                    ),
+                    border: InputBorder.none,
+                    isDense: true, //it will reduce the height of the text field
+                    contentPadding: EdgeInsets.zero,
                   ),
-                  border: InputBorder.none,
                 ),
               ),
-              Row(
-                children: [
-                  SearchBarButton(
-                    icon: Icons.auto_awesome_outlined,
-                    text: 'Focus',
-                  ),
-                  const SizedBox(width: 12),
-                  SearchBarButton(
-                    icon: Icons.add_circle_outline_outlined,
-                    text: 'Attach',
-                  ),
-                  const Spacer(),
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: AppColors.submitButton,
-                      borderRadius: BorderRadius.circular(40),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  children: [
+                    SearchBarButton(
+                      icon: Icons.auto_awesome_outlined,
+                      text: 'Focus',
                     ),
-                    child: const Icon(
-                      Icons.arrow_forward,
-                      color: AppColors.background,
-                      size: 16,
+                    const SizedBox(width: 12),
+                    SearchBarButton(
+                      icon: Icons.add_circle_outline_outlined,
+                      text: 'Attach',
                     ),
-                  )
-                ],
+                    const Spacer(),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: AppColors.submitButton,
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: const Icon(
+                        Icons.arrow_forward,
+                        color: AppColors.background,
+                        size: 16,
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),
