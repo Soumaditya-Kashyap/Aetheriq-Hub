@@ -8,8 +8,8 @@ search_service = SearchService()
 # chatting
 @app.post('/chat')
 def chat_endpoint(body: ChatBody):
-	#The main workflow
 	# 1. search the web and find out appropriate sources
+	search_service.web_search(body.query)
 	# 2. sort the sources based on the relevance to the query
 	# 3. generate the response using LLM(Gemini)
 	return body.query
