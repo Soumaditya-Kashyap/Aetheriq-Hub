@@ -15,7 +15,8 @@ def chat_endpoint(body: ChatBody):
 	# 1. search the web and find out appropriate sources
 	search_results = search_service.web_search(body.query)
 
-	sort_source_service.sort_sources(body.query, search_results)
+	sorted_results= sort_source_service.sort_sources(body.query, search_results)
+	print(sorted_results)
 	# 2. sort the sources based on the relevance to the query
 	# 3. generate the response using LLM(Gemini)
 	return body.query
