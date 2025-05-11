@@ -6,7 +6,7 @@ class LLMService:
    
     def __init__(self):
         genai.configure(api_key=settings.GEMINI_API_KEY)
-        self.model = genai.GenerativeModel('gemini-2.5-pro-preview-05-06')
+        self.model = genai.GenerativeModel('gemini-2.5-pro-exp-03-25')
     
     def generate_response(self, query:str, search_results:list[dict]):
         
@@ -26,7 +26,7 @@ class LLMService:
              Think and reason deeply. Ensure it answers the query the user is asking. Do not use your knowledge until it is absolutely necessary.
            """
     
-        response = self.model.generate_content(full_prompt, stream=True)
+        response = self.model.generate_content(full_prompt)
     
         return response.text
   

@@ -1,6 +1,6 @@
 from typing import List
-from sentence_transformers import SentenceTransformer
-import numpy as np
+from sentence_transformers import SentenceTransformer # type: ignore
+import numpy as np # type: ignore
 
 class SortSourceService:
     def __init__(self):
