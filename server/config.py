@@ -1,5 +1,5 @@
-from dotenv import load_dotenv
-from pydantic_settings import BaseSettings
+from dotenv import load_dotenv # type: ignore
+from pydantic_settings import BaseSettings # type: ignore
 
 
 load_dotenv()
