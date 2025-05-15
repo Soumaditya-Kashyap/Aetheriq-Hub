@@ -34,7 +34,7 @@ async def websocket_chat_endpoint(websocket: WebSocket):
 
          
     except:
-        print("unexpected Error Occured, Tum Chutiya")
+        print("unexpected Error Occured")
     finally:
         await websocket.close()
 
