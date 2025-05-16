@@ -1,11 +1,22 @@
+import 'package:atheriq/services/chat_web_service.dart';
 import 'package:atheriq/theme/colors.dart';
 import 'package:atheriq/widgets/footer_button.dart';
 import 'package:atheriq/widgets/seacrh_section.dart';
 import 'package:atheriq/widgets/side_bar.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  void initState() {
+    super.initState();
+    ChatWebService().connect();
+  }
 
   @override
   Widget build(BuildContext context) {
