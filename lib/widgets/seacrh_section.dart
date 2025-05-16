@@ -1,11 +1,24 @@
+import 'package:atheriq/services/chat_web_service.dart';
 import 'package:atheriq/theme/colors.dart';
 import 'package:atheriq/widgets/search_bar_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SeacrhSection extends StatelessWidget {
+class SeacrhSection extends StatefulWidget {
   const SeacrhSection({super.key});
 
+  @override
+  State<SeacrhSection> createState() => _SeacrhSectionState();
+}
+
+class _SeacrhSectionState extends State<SeacrhSection> {
+  final queryController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    queryController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,6 +49,7 @@ class SeacrhSection extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
+                  controller: queryController,
                   decoration: InputDecoration(
                     hintText: 'Seach for anything...',
                     hintStyle: TextStyle(
@@ -62,16 +76,21 @@ class SeacrhSection extends StatelessWidget {
                       text: 'Attach',
                     ),
                     const Spacer(),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: AppColors.submitButton,
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                      child: const Icon(
-                        Icons.arrow_forward,
-                        color: AppColors.background,
-                        size: 16,
+                    GestureDetector(
+                      onTap: () {
+                        ChatWebService().chat(queryController.text.trim());
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: AppColors.submitButton,
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        child: const Icon(
+                          Icons.arrow_forward,
+                          color: AppColors.background,
+                          size: 16,
+                        ),
                       ),
                     )
                   ],
