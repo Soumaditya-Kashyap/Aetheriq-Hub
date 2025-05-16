@@ -37,6 +37,8 @@ dependencies:
   google_fonts: ^6.2.1
   web_socket_client: ^0.2.0
   flutter_dotenv: ^5.2.1
+  flutter_markdown: ^0.7.7+1
+  skeletonizer: ^1.4.3
 
 dev_dependencies:
   flutter_test:

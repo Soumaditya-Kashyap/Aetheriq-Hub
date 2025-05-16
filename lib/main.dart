@@ -1,4 +1,4 @@
-import 'package:atheriq/pages/chat_page.dart';
+
 import 'package:atheriq/pages/home_page.dart';
 import 'package:atheriq/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +18,16 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           scaffoldBackgroundColor: AppColors.background,
-          textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
+          textTheme: GoogleFonts.interTextTheme(
+            ThemeData.dark().textTheme.copyWith(
+                  bodyMedium: const TextStyle(
+                    fontSize: 15,
+                    color: AppColors.whiteColor,
+                  ),
+                ),
+          ),
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.submitButton)),
-      home: const ChatPage(
-        question: "Who is Soumaditya Kashyap?" ,
-      ),
+      home: const HomePage(),
     );
   }
 }

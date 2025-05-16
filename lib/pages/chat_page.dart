@@ -1,5 +1,8 @@
+import 'package:atheriq/theme/colors.dart';
+import 'package:atheriq/widgets/answer_section.dart';
 import 'package:atheriq/widgets/side_bar.dart';
 import 'package:atheriq/widgets/sources_section.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -14,25 +17,35 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          SideBar(),
-          const SizedBox(width: 100),
-          Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              children: [
-                Text(
-                  question,
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
+           kIsWeb ? SideBar() : SizedBox(),
+          kIsWeb ? const SizedBox(width: 100) :  SizedBox(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      question,
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 24),
+                    SourcesSection(),
+                    SizedBox(height: 24),
+                    AnswerSection(),
+                  ],
                 ),
-                SizedBox(height: 24),
-                SourcesSection(),
-                //answer section
-              ],
+              ),
             ),
-          )
+          ),
+         kIsWeb ? Placeholder(
+            strokeWidth: 0,
+            color: AppColors.background,
+          ) : SizedBox()
         ],
       ),
     );

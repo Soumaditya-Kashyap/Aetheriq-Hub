@@ -1,3 +1,4 @@
+import 'package:atheriq/pages/chat_page.dart';
 import 'package:atheriq/services/chat_web_service.dart';
 import 'package:atheriq/theme/colors.dart';
 import 'package:atheriq/widgets/search_bar_button.dart';
@@ -19,6 +20,7 @@ class _SeacrhSectionState extends State<SeacrhSection> {
     super.dispose();
     queryController.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -79,6 +81,12 @@ class _SeacrhSectionState extends State<SeacrhSection> {
                     GestureDetector(
                       onTap: () {
                         ChatWebService().chat(queryController.text.trim());
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ChatPage(question: queryController.text.trim()),
+                          ),
+                        );
                       },
                       child: Container(
                         padding: EdgeInsets.all(10),
