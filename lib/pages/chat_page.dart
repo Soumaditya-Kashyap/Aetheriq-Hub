@@ -25,7 +25,10 @@ class ChatPage extends StatelessWidget {
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                   ),
-                )
+                ),
+                SizedBox(height: 24),
+                //sources
+                //answer section
               ],
             ),
           )
