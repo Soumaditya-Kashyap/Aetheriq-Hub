@@ -1,4 +1,5 @@
 import 'package:atheriq/widgets/side_bar.dart';
+import 'package:atheriq/widgets/sources_section.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -27,7 +28,7 @@ class ChatPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 24),
-                //sources
+                SourcesSection(),
                 //answer section
               ],
             ),
