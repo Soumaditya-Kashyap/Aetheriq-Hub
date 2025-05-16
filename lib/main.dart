@@ -1,3 +1,4 @@
+import 'package:atheriq/pages/chat_page.dart';
 import 'package:atheriq/pages/home_page.dart';
 import 'package:atheriq/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,9 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.background,
           textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.submitButton)),
-      home: const HomePage(),
+      home: const ChatPage(
+        question: "Who is Soumaditya Kashyap?" ,
+      ),
     );
   }
 }

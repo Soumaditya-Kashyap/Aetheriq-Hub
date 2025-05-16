@@ -35,19 +35,7 @@ class _HomePageState extends State<HomePage> {
                   child: SeacrhSection(),
                 ),
               ),
-              StreamBuilder(
-                stream: ChatWebService().contentStream,
-                builder: (contex, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-
-                  fullResponse += snapshot.data?['data'] ?? "";
-                  return Text(fullResponse);
-                },
-              ),
+              
               //footer
               Container(
                   padding: const EdgeInsets.symmetric(vertical: 20),
