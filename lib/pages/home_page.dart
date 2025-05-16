@@ -13,6 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String fullResponse = "";
+  @override
   void initState() {
     super.initState();
     ChatWebService().connect();
@@ -32,6 +34,19 @@ class _HomePageState extends State<HomePage> {
                   height: 20,
                   child: SeacrhSection(),
                 ),
+              ),
+              StreamBuilder(
+                stream: ChatWebService().contentStream,
+                builder: (contex, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+
+                  fullResponse += snapshot.data?['data'] ?? "";
+                  return Text(fullResponse);
+                },
               ),
               //footer
               Container(
