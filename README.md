@@ -1,17 +1,28 @@
-# Aetheriq-Hub
-# atheriq
+Aetheriq-Hub
+Aetheriq-Hub is a futuristic AI-powered chat application built with Flutter. Inspired by platforms like Perplexity, ChatGPT, and Gemini, it offers a seamless conversational experience with real-time responses. The app integrates advanced AI APIs and is designed with a modern, gradient-rich UI for both mobile and web platforms.
 
-A new Flutter project.
+🚀 Features
+Continuous Chat Interface: Engage in uninterrupted conversations without navigating back to the home screen.
 
-## Getting Started
+Real-Time Responses: Utilizes WebSocket connections for instant AI replies.
 
-This project is a starting point for a Flutter application.
+AI Integrations:
 
-A few resources to get you started if this is your first Flutter project:
+Tavily: For enhanced search capabilities.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Trafilatura: For web content extraction.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Gemini API: For advanced conversational AI.
+
+Futuristic UI: Modern design with gradient shades and smooth animations.
+
+Cross-Platform Support: Available on Android, iOS, Web, Windows, macOS, and Linux.
+
+Stateless Sessions: No user authentication; chat history resets upon app closure or page refresh.
+
+🛠️ Tech Stack
+Frontend: Flutter
+
+Backend: WebSocket server (currently running locally at ws://localhost:8000/ws/chat)
+
+APIs: Tavily, Trafilatura, Gemini
